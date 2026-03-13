@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "creacion de Api Rest para una tienda virtual",
+  "homepage": "https://github.com/dianaGalindo-v/Backend#readme",
+  "bugs": {
+    "url": "https://github.com/dianaGalindo-v/Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianaGalindo-v/Backend.git"
+  },
+  "license": "ISC",
+  "author": "Diana Galindo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "morgan": "^1.10.1"
+  }
+}
