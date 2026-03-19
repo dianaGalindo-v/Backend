@@ -1,25 +1,32 @@
 {
-  "name": "backend",
+  "name": "tiendavirtual",
   "version": "1.0.0",
-  "description": "creacion de Api Rest para una tienda virtual",
-  "homepage": "https://github.com/dianaGalindo-v/Backend#readme",
+  "description": "Creacion de PI REST para una tienda virtual",
+  "homepage": "https://github.com/erikib/BACKEND_TIENDAVIRTUAL#readme",
   "bugs": {
-    "url": "https://github.com/dianaGalindo-v/Backend/issues"
+    "url": "https://github.com/erikib/BACKEND_TIENDAVIRTUAL/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dianaGalindo-v/Backend.git"
+    "url": "git+https://github.com/erikib/BACKEND_TIENDAVIRTUAL.git"
   },
   "license": "ISC",
-  "author": "Diana Galindo",
+  "author": "Erik Ibarra",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "^2.2.2",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "mysql2": "^3.20.0",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

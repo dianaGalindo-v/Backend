@@ -1,11 +1,11 @@
 const express = require('express');
 const logger = require('morgan');
-const bodyParser = require('body-parser');  //estos paquetes permiten ver en el servidor 
+const bodyParser = require('body-parser');
 
-const http = require('http'); //crea un servicio http
-const app = express(); //es para crear las api's
+const http = require('http');
+const app = express();
 
-app.use(logger('dev')); //para crear archivos de sistma, en consola muestra errores o asi
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -19,4 +19,3 @@ app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
 module.exports = app;
-
