@@ -1,21 +1,24 @@
 {
   "name": "tiendavirtual",
   "version": "1.0.0",
-  "description": "Creacion de PI REST para una tienda virtual",
-  "homepage": "https://github.com/erikib/BACKEND_TIENDAVIRTUAL#readme",
+  "description": "Creacion de API-REST para una tienda virtual ",
+  "homepage": "https://github.com/salasCris/Backend-tienda-virtualEVND#readme",
   "bugs": {
-    "url": "https://github.com/erikib/BACKEND_TIENDAVIRTUAL/issues"
+    "url": "https://github.com/salasCris/Backend-tienda-virtualEVND/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erikib/BACKEND_TIENDAVIRTUAL.git"
+    "url": "git+https://github.com/salasCris/Backend-tienda-virtualEVND.git"
   },
   "license": "ISC",
-  "author": "Erik Ibarra",
+  "author": "Cristian Salas Ventura",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
+    "db:create": "npx sequelize-cli db:create",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:status": "npx sequelize-cli db:migrate:status",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

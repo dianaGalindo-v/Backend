@@ -1,7 +1,5 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
-const { DataTypes } = require('sequelize');  // Importar DataTypes desde Sequelize
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('tbc_usuarios', {
@@ -13,32 +11,32 @@ module.exports = {
       },
       nombre: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull:false
       },
       direccion: {
         type: Sequelize.STRING(200),
-        allowNull: false
+        allowNull:false
       },
       telefono: {
         type: Sequelize.STRING(15),
-        allowNull: false
+        allowNull:false
       },
       email: {
         type: Sequelize.STRING(120),
-        allowNull: false
+        allowNull:false
       },
       password: {
         type: Sequelize.STRING(255),
-        allowNull: false
+        allowNull:false
       },
       rol: {
-        type: DataTypes.ENUM('admin', 'cliente'),  // Corregir el valor 'admmin' a 'admin'
-        allowNull: false,
-        defaultValue: 'cliente'
+        type: Sequelize.ENUM('admin', 'cliente'),
+      allowNull:false,
+      defaultValue: 'cliente'
       },
       fecha_registro: {
-        type: Sequelize.DATE,  // Corregir a Sequelize.DATE
-        allowNull: false
+        type: Sequelize.DATE,
+        allowNull:false
       },
       createdAt: {
         allowNull: false,
@@ -50,7 +48,6 @@ module.exports = {
       }
     });
   },
-
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('tbc_usuarios');
   }

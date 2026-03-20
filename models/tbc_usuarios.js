@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class tbc_usuario extends Model {
+  class tbc_usuarios extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,39 +13,39 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  tbc_usuario.init({
+  tbc_usuarios.init({
     nombre: {
       type: DataTypes.STRING(100),
       allowNull:false
     },
     direccion: {
-      type: DataTypes.STRING(200),
+      type:DataTypes.STRING(200),
       allowNull:false
-    },
+   }, 
     telefono: {
-      type: DataTypes.STRING(15),
+      type:DataTypes.STRING(15),
       allowNull:false
     },
     email: {
-      type: DataTypes.STRING(120),
+      type:DataTypes.STRING(120),
       allowNull:false
-    },
+    }, 
     password: {
-      type: DataTypes.STRING(255),
+      type:DataTypes.STRING(255),
       allowNull:false
     },
     rol: {
-      type: DataTypes.ENUM('admmin', 'cliente'),
-      allowNull: false,
+      type: DataTypes.ENUM('admin', 'cliente'),
+      allowNull:false,
       defaultValue: 'cliente'
-    },
+    }, 
     fecha_registro: {
-      type: DataType.Date,
+      type: DataTypes.DATE,
       allowNull:false
-    }
+    } 
   }, {
     sequelize,
-    modelName: 'tbc_usuario',
+    modelName: 'tbc_usuarios',
   });
-  return tbc_usuario;
+  return tbc_usuarios;
 };
