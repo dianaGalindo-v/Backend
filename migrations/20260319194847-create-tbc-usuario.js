@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('tbb_productos', {
+    await queryInterface.createTable('tbc_usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,23 +17,17 @@ module.exports = {
         type: Sequelize.STRING(200),
         allowNull: false
       },
-      precio: {
-        type: Sequelize.DECIMAL(10,2),
+      telefono: {
+        type: Sequelize.STRING(15),
         allowNull: false
       },
-      stock: {
-        type: Sequelize.INTEGER,
+      email: {
+        type: Sequelize.STRING(120),
         allowNull: false
       },
-      categoriaId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'tbc_categorias',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+      rol: {
+        type: Sequelize.ENUM('admin', 'client'),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -46,7 +40,7 @@ module.exports = {
     });
   },
 
-  async down(queryInterface) {
-    await queryInterface.dropTable('tbb_productos');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('tbc_usuarios');
   }
 };

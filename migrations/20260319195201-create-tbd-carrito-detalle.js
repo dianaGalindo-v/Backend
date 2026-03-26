@@ -1,5 +1,5 @@
 'use strict';
-/** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('tbd_carrito_detalle', {
@@ -9,12 +9,32 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      precio_unitario: {
-        type: Sequelize.DECIMAL(10, 2),
-        allowNull: false
+      carritoId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'tbb_carritos',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      productoId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'tbb_productos',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       cantidad: {
         type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      subtotal: {
+        type: Sequelize.DECIMAL(10,2),
         allowNull: false
       },
       createdAt: {
@@ -27,7 +47,8 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+
+  async down(queryInterface) {
     await queryInterface.dropTable('tbd_carrito_detalle');
   }
 };

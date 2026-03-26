@@ -1,17 +1,17 @@
 {
-  "name": "tiendavirtual",
+  "name": "backend",
   "version": "1.0.0",
   "description": "Creacion de API-REST para una tienda virtual ",
-  "homepage": "https://github.com/salasCris/Backend-tienda-virtualEVND#readme",
+  "homepage": "https://github.com/dianaGalindo-v/Backend#readme",
   "bugs": {
-    "url": "https://github.com/salasCris/Backend-tienda-virtualEVND/issues"
+    "url": "https://github.com/dianaGalindo-v/Backend/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/salasCris/Backend-tienda-virtualEVND.git"
+    "url": "git+https://github.com/dianaGalindo-v/Backend.git"
   },
   "license": "ISC",
-  "author": "Cristian Salas Ventura",
+  "author": "Diana Galindo Vergara",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

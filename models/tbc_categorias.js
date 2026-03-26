@@ -2,7 +2,6 @@
 const {
   Model
 } = require('sequelize');
-const tbb_productos = require('./tbb_productos');
 module.exports = (sequelize, DataTypes) => {
   class tbc_categorias extends Model {
     static associate(models) {
@@ -17,14 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'tbc_categorias',
-  });//NUEVOOOO
-  tbc_categorias.associate = function(models){
-    tbb_productos.belongsTo(models.tbc_categorias,
-      {
-        as: 'categoria',
-        foreignKey: 'categoria_id',
-      }
-    );
-  };
+  });
+   tbb_categorias.associate = function(models)
+{
+  tbb_categorias.hasMany(models.tbb_productos, {
+    as: 'tbb_productos',
+    foreignKey: 'idCategoria'
+
+  })
+}
   return tbc_categorias;
 };
