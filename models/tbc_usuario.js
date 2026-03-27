@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     
     direccion:{ 
-    typr: DataTypes.STRING(200),
+    type: DataTypes.STRING(200),
     allowNull: false
     },
     telefono:{
@@ -32,20 +32,18 @@ module.exports = (sequelize, DataTypes) => {
     allowNull: false
     },
     rol: {
-    type: DataTypes.EMUN('admin', 'client'),
+    type: DataTypes.ENUM('admin', 'client'),
     allowNull: false,
     defaultValue: 'client'
     },
-    fecha_registro:{
-
-    type: DataTypes.Date,
+    fecha_registro: {
+    type: DataTypes.DATE,
     allowNull: false
-
     },
-    password: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'tbc_usuario',
-  });
-  return tbc_usuario;
+      password: DataTypes.STRING
+    }, {
+      sequelize,
+      modelName: 'tbc_usuario',
+    });
+    return tbc_usuario;
 };
