@@ -9,6 +9,7 @@ module.exports = {
             direccion: req.body.direccion,
             precio: req.body.precio,
             stock: req.body.stock,
+            imagen: req.body.imagen,
             id_categoria: req.body.id_categoria,
         })
         .then(productoItem => res.status(200).send(productoItem))
@@ -56,6 +57,7 @@ module.exports = {
                 direccion: req.body.direccion,
                 precio: req.body.precio,
                 stock: req.body.stock,
+                imagen: req.body.imagen,
                 id_categoria: req.body.id_categoria,
             })
             .then(updated => res.status(200).send(updated))
