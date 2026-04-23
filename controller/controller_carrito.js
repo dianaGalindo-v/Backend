@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const carrito = require('../models').tbb_carritos;
+const models = require('../models');
+const carrito = models.tbb_carritos;
 
 module.exports = {
     create(req, res){
@@ -13,8 +14,27 @@ module.exports = {
         .then(carritoItem => res.status(200).send(carritoItem))
         .catch(error => res.status(400).send(error));
     },
-    list(_, res){
-        return carrito.findAll()
+    list(req, res){
+        const where = {};
+        if (req.query.id_usuario) {
+            where.id_usuario = req.query.id_usuario;
+        }
+
+        return carrito.findAll({
+            where,
+            include: [
+                {
+                    model: models.tbd_carrito_detalle,
+                    as: 'detalles',
+                    include: [
+                        {
+                            model: models.tbb_productos,
+                            as: 'producto',
+                        }
+                    ]
+                }
+            ]
+        })
         .then(carritos => res.status(200).send(carritos))
         .catch(error => res.status(400).send(error));
     },
@@ -22,7 +42,20 @@ module.exports = {
         const id = req.params.id;
 
         if (id) {
-            return carrito.findByPk(id)
+            return carrito.findByPk(id, {
+                include: [
+                    {
+                        model: models.tbd_carrito_detalle,
+                        as: 'detalles',
+                        include: [
+                            {
+                                model: models.tbb_productos,
+                                as: 'producto',
+                            }
+                        ]
+                    }
+                ]
+            })
             .then(carritoItem => {
                 if (!carritoItem) {
                     return res.status(404).send({message: 'Carrito no encontrado'});

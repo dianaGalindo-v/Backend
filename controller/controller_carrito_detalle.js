@@ -13,8 +13,16 @@ module.exports = {
         .then(detalle => res.status(200).send(detalle))
         .catch(error => res.status(400).send(error));
     },
-    list(_, res){
-        return carritoDetalle.findAll()
+    list(req, res){
+        const where = {};
+        if (req.query.id_carrito) {
+            where.id_carrito = req.query.id_carrito;
+        }
+        if (req.query.id_producto) {
+            where.id_producto = req.query.id_producto;
+        }
+
+        return carritoDetalle.findAll({ where })
         .then(detalles => res.status(200).send(detalles))
         .catch(error => res.status(400).send(error));
     },
